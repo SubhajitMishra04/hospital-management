@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor</title>
+
+  <style>
+    body {
+      background-image: url('img/Hospitalstock.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .header {
+      padding: 10px 16px;
+      background: rgb(10, 78, 109);
+      color: #ffffff;
+    }
+
+    .container {
+      height: 200px;
+      position: relative;
+
+    }
+
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 80%;
+      left: 30%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .button {
+     background-color: #4CAF50; 
+     border: none;
+     color: white;
+     padding: 15px 32px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     font-size: 16px;
+     margin: 4px 2px;
+     cursor: pointer;
+    }
+
+            /* The navigation bar */
+.navbar {
+    padding: 10px 16px;
+  overflow: hiddens;
+  background-color: rgb(10, 78, 109);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <audio src="AppointAudio.mp3" autoplay="autoplay"></audio>
+
+  <section><div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="appointment.html">Appointment</a>
+    <a href="online.html">Online Consultation</a>
+  </div>
+  </section>
+
+  
+  <h3>The following are the Specialist availabe for Appointment Booking. You can choose the Doctor according to their
+    specialisation and your needs</h3>
+    <br>
+    <br>
+
+
+
+  <section>
+    <table border="1" style="margin:10px auto;" cellpadding="20">
+      <caption><b>Available</b></caption>
+      <tr>
+        <td>Dr. Stephen Strange</b><br><br>MBBS AIMS, Bellur<br>MS(General Surgery)<br>Laparoscopic Surgery
+          Certified<br></td>
+        <td><img src="img/doc1.jpeg" alt="doc1"> </td>
+        <td><a href="onlinebook.html" class="button">Book</a></td>
+      </tr>
+    </table>
+    <br>
+
+    <table border="1" style="margin:10px auto;" cellpadding="20">
+      <caption><b>Available</b></caption>
+      <tr>
+        <td>Dr. Bruce Banner</b><br><br>MD (Dermatology & Leprosy)<br>DNB (Dermatology)<br>
+        </td>
+        <td><img src="img/doc1.jpeg" alt="doc1"> </td>
+        <td><a href="onlinebook.html" class="button">Book</a></td>
+      </tr>
+    </table>
+    <br>
+
+    <table border="1" style="margin:10px auto;" cellpadding="20">
+      <caption><b>Available</b></caption>
+      <tr>
+        <td>Dr. Jane Foster</br><br>MBBS<br>DNB (General Surgery) FMIS</td>
+        <td><img src="img/doc1.jpeg" alt="doc1"> </td>
+        <td><a href="onlinebook.html" class="button">Book</a></td>
+      </tr>
+    </table>
+  </section>
+
+
+
+
+</body>
+
+</html>
