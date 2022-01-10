@@ -1,0 +1,27 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="type">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="employee" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="firstname"/>
+              <xs:element type="xs:string" name="lastname"/>
+              <xs:element type="xs:integer" name="experience"/>
+              <xs:element type="xs:string" name="type"/>
+              <xs:element type="xs:string" name="gender"/>
+              <xs:element type="xs:short" name="userid"/>
+              <xs:element type="xs:integer" name="age"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="email">
+<xs:restriction base="xs:integer">
+  <xs:minInclusive value="30"/>
+  <xs:maxInclusive value="70"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
