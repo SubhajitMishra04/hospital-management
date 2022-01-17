@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+  
+<head>
+    <title>Table</title>
+    
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+<link href="css/style.css" rel="stylesheet">
+
+<!--<link href="nav.css" rel="stylesheet">-->
+
+<link href="css/responsive.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+    <!-- CSS -->
+    <style>
+        body {
+            color: black;
+        }
+        tr td {
+            color: black;
+        }
+        
+        body {
+            background-image: url('img/onlineimg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .header {
+            padding: 10px 16px;
+            background: rgb(10, 78, 109);
+            color: #ffffff;
+        }
+
+        .container {
+            height: 200px;
+            position: relative;
+
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 80%;
+            left: 30%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .navbar {
+    padding: 10px 16px;
+  overflow: hiddens;
+  background-color: rgb(10, 78, 109);
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+    </style>
+  
+    <!--JavaScript-->
+    <script>
+    var v=0;
+    var id;
+    var xmlDoc;
+        function loadXMLDoc() {
+            if(window.XMLHttpRequest)
+            {
+                xhttp=new XMLHttpRequest();
+            }
+            else{
+                xhttp=new ActiveXObject("Microsoft.XMLHTTP")
+            }
+            xhttp.open("GET","web.xml",false);
+            xhttp.send();
+           xmlDoc =  xhttp.responseXML;
+           empDetails();
+        }
+
+        function remove(i)
+        {
+           y=xmlDoc.getElementsByTagName('employee')[i];
+           xmlDoc.documentElement.removeChild(y);
+           alert('The Element has been removed!');
+           empDetails();
+        }
+
+        function display(i)
+        {
+            id=i
+            var x = document.getElementById("changeRecordForm");
+            var y = xmlDoc.getElementsByTagName("firstname")[i].childNodes[0];
+            x.elements[0].value = y.nodeValue
+            y = xmlDoc.getElementsByTagName("lastname")[i].childNodes[0];
+            x.elements[1].value = y.nodeValue
+            y = xmlDoc.getElementsByTagName("experience")[i].childNodes[0];
+             x.elements[2].value = y.nodeValue
+            y = xmlDoc.getElementsByTagName("type")[i].childNodes[0];
+            x.elements[3].value = y.nodeValue
+            y = xmlDoc.getElementsByTagName("gender")[i].childNodes[0];
+             x.elements[4].value = y.nodeValue
+            y = xmlDoc.getElementsByTagName("userid")[i].childNodes[0];
+             x.elements[5].value = y.nodeValue
+            y = xmlDoc.getElementsByTagName("age")[i].childNodes[0];
+             x.elements[6].value = y.nodeValue
+            $("#changedata").modal()
+        }
+
+        function change()
+        {
+            i=id
+            var x = document.getElementById("changeRecordForm");
+            var j=0;
+            var y = xmlDoc.getElementsByTagName("firstname")[i].childNodes[0];
+            y.nodeValue = x.elements[0].value;
+            console.log(y.nodevalue);
+            y = xmlDoc.getElementsByTagName("lastname")[i].childNodes[0];
+            y.nodeValue = x.elements[1].value;
+            y = xmlDoc.getElementsByTagName("experience")[i].childNodes[0];
+            y.nodeValue = x.elements[2].value;
+            y = xmlDoc.getElementsByTagName("type")[i].childNodes[0];
+            y.nodeValue = x.elements[3].value;
+            y = xmlDoc.getElementsByTagName("gender")[i].childNodes[0];
+            y.nodeValue = x.elements[4].value;
+            y = xmlDoc.getElementsByTagName("userid")[i].childNodes[0];
+            y.nodeValue = x.elements[5].value;
+            y = xmlDoc.getElementsByTagName("age")[i].childNodes[0];
+            y.nodeValue = x.elements[6].value;
+            document.getElementById("changeRecordForm").reset();
+            
+           alert('The Element has been updated!');
+           empDetails();
+        }
+
+        function addNewRecord()
+        {
+            var i;
+            var event = []
+            var x = document.getElementById("addRecordForm")
+            events = xmlDoc.createElement("employee")
+            event[0] = xmlDoc.createElement("firstname")
+            event[1] = xmlDoc.createElement("lastname")
+            event[2] = xmlDoc.createElement("experience")
+            event[3] = xmlDoc.createElement("type")
+            event[4] = xmlDoc.createElement("gender")
+            event[5] = xmlDoc.createElement("userid")
+            event[6] = xmlDoc.createElement("age")
+            for(i=0; i<7; i++)
+            {
+                event[i].appendChild(xmlDoc.createTextNode(x.elements[i].value))
+                events.appendChild(event[i])
+            }
+            xmlDoc.documentElement.appendChild(events);
+            document.getElementById("addRecordForm").reset();
+             alert('The Element has been added!');
+            empDetails();
+        }
+  
+        function empDetails() {
+            var i;
+            var table =
+                `<tr><th>First Name</th><th>Last Name</th>
+                    <th>Experience</th><th>Type</th>
+                    <th>Gender</th><th>User ID</th><th>Age</th>
+                </tr>`;
+                
+            var x = xmlDoc.getElementsByTagName("employee");
+            
+  
+            // Start to fetch the data by using TagName 
+            for (i = 0; i < x.length; i++) {
+                // s_no = i+1;
+                table += "<tr><td>" + 
+                    x[i].getElementsByTagName("firstname")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("lastname")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("experience")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("type")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("gender")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("userid")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("age")[0]
+                    .childNodes[0].nodeValue + "</td>"+
+                    "<td><span class='material-icons' onclick='display("+i+")'>edit</span></td>"+
+                    "<td><span class='material-icons' onclick='remove("+i+")'>delete</span></td></tr>";
+
+            }
+  
+            // Print the xml data in table form
+            document.getElementById("id").innerHTML = table;
+        }
+        
+    </script>
+    
+</head>
+  
+<body onload="loadXMLDoc()">
+
+  <section><div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="appointment.html">Appointment</a>
+    <a href="online.html">Online Consultation</a>
+</div>
+</section>
+<br>
+<br>
+<br>
+<br>
+
+
+    <!-- Vertical navbar -->
+
+  <div class="page-content p-5" id="content">
+  <span class='material-icons' style="color: black;" data-toggle="modal" data-target="#adddata">add</span>
+        
+  
+  <!-- Modal -->
+  
+    <div class="modal fade" id="adddata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Record</h5><br>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="addRecordForm">
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">First Name</lable>
+                <input class="modal-content" style="width: 200px;" type="text" id="firstname"></input><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Last Name</lable>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="lastname"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Experience</lable>
+                <input class="modal-content" style="width: 200px; float:left;"type="text" id="experience"></input><br><br>
+                <label class="modal-content" style="width: 200px; float:left; border: 0px;">Type</label>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="type"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Gender</lable>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="gender"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">User Id</lable>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="userid"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Age</lable>
+                <input class="modal-content" style="width: 200px; float:left;"type="text" id="age"></input><br><br>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="addNewRecord();">Add Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--New Modal-->
+  <div class="modal fade" id="changedata" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Record</h5><br>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form id="changeRecordForm">
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">First Name</lable>
+                <input class="modal-content" style="width: 200px;" type="text" id="firstname"></input><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Last Name</lable>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="lastname"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Experience</lable>
+                <input class="modal-content" style="width: 200px; float:left;"type="text" id="experience"></input><br><br>
+                <label class="modal-content" style="width: 200px; float:left; border: 0px;">Type</label>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="type"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Gender</lable>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="gender"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">User Id</lable>
+                <input class="modal-content" style="width: 200px; float:left;" type="text" id="userid"></input><br><br>
+                <lable class="modal-content" style="width: 200px; float:left; border: 0px;">Age</lable>
+                <input class="modal-content" style="width: 200px; float:left;"type="text" id="age"></input><br><br>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="change();">Update Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+  <section class="banner-section">
+    <table id="id"></table>
+    </section>
+    
+  </div>
+
+    <script src="js/jquery.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+<!-- 
+<script src="jquery-ui.js"></script>
+
+
+
+<script src="script.js"></script>
+
+<script src="color-settings.js"></script> -->
+
+<!-- Color Setting -->
+
+
+</body>
+  
+</html>
