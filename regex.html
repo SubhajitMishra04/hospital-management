@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style type="text/css">
+      section {
+        width: 1200px;
+        height: 300px;
+        margin: 100px auto;
+        /* background-color: gray;
+        opacity: .50; */
+      }
+
+      div {
+        width: 100%;
+        margin: 10px auto;
+        opacity: 50;
+        /* background-color: gray;
+        opacity: .50; */
+      }
+
+      label {
+        display: block;
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      input {
+        width: 26%;
+        padding: 11px;
+        border: 1px red;
+        margin-left: 33%;
+        border-radius: 50px;
+        color: black;
+        /* background-color: gray;
+        opacity: .50; */
+      }
+
+      span {
+        display: block;
+        margin-left: 10px;
+        color: red;
+        font-style: italic;
+        /* background-color: gray;
+        opacity: .50; */
+      }
+
+      body 
+      {
+            background-image: url('img/onlineimg.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+      }
+
+      .header {
+            padding: 10px 16px;
+            background: rgb(10, 78, 109);
+            color: #ffffff;
+        }
+
+        .container {
+            height: 200px;
+            position: relative;
+
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 80%;
+            left: 30%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border-radius: 50px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 41%;
+        }
+
+        .navbar {
+    padding: 10px 16px;
+  overflow: hiddens;
+  background-color: rgb(10, 78, 109);
+  position: fixed; /* Set the navbar to fixed position */
+  top: -1.25%; /* Position the navbar at the top of the page */
+  left: 0%;
+  width: 100%; /* Full width */
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change background on mouse-over */
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+    <br>
+    <br>
+    <br>
+    
+    <section>
+      <form >
+        <div>
+          <!-- <lable>First name</lable> -->
+          <input type="text" onkeypress="return test(event)" id="fname" placeholder="First Name">
+          <span></span>
+        </div>
+        <div>
+          <!-- <lable>Last name</lable> -->
+          <input type="text" onkeypress="return test(event)" id="lname" placeholder="Last Name">
+          <span></span>
+        </div>
+        <div>
+          <!-- <label>E-mail</label> -->
+          <input type="email" id="email" placeholder="E-mail">
+          <span></span>
+        </div>
+        <div>
+          <!-- <label>Phone number</label> -->
+          <input type="number" id="no" placeholder="Phone-Number">
+          <span></span>
+        </div>
+        <div>
+          <!-- <lable>Password</lable> -->
+          <input type="password" id="pswd" placeholder="Password">
+          <span></span>
+        </div>
+        <div>
+          <!-- <lable>Re-enter Password</lable> -->
+          <input type="password" id="rpswd" placeholder="Re-password">
+          <span></span>
+        </div>
+      </form>
+
+      <section>      
+    <a href="regex.html" class="button" onclick="alert('Registration successful')">Book Online</a>
+      </section>
+
+
+    </section>
+    <section><div class="navbar">
+      <a href="index.html">Home</a>
+      <a href="appointment.html">Appointment</a>
+      <a href="online.html">Online Consultation</a>
+             </div>
+    </section>
+
+    
+
+  </body>
+</html>
+<script>
+  var fname = document.getElementById('fname');
+  var lname = document.getElementById('lname');
+  var email = document.getElementById('email');
+  var number = document.getElementById('no');
+  var pswd = document.getElementById('pswd');
+  var rpswd = document.getElementById('rpswd');
+  var span = document.getElementsByTagName('span');
+  function test(event)
+        {
+            let code=event.which;
+            if(code>47&&code<58)
+            return false;
+            else
+            return true;
+        }
+  fname.onkeydown = function() {
+    const reg = /^[a-zA-Z]{1,}$/;
+    if (reg.test(fname.value)) {
+      span[0].innerText = "Your First Name is Valid";
+      span[0].style.color = "lime";
+      span[0].
+    } else {
+      span[0].innerText = "Invalid First Name";
+      span[0].style.color = "red";
+    }
+  }
+  lname.onkeydown = function() {
+    const reg = /^[a-zA-Z]{1,}$/;
+    if (reg.test(lname.value)) {
+      span[1].innerText = "Your Last Name is Valid";
+      span[1].style.color = "lime";
+    } else {
+      span[1].innerText = "Invalid Last Name";
+      span[1].style.color = "red";
+    }
+  }
+  email.onkeydown = function() {
+    const regex1 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
+    const regex2 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
+    if (regex1.test(email.value) || regex2.test(email.value)) {
+      span[2].innerText = "Your Email is Valid";
+      span[2].style.color = "lime";
+    } else {
+      span[2].innerText = "Invalid Email Id";
+      span[2].style.color = "red";
+    }
+  }
+  number.onkeydown = function() {
+    const regnum = /^[0-9]{9}$/;
+    if (regnum.test(number.value)) {
+      span[3].innerText = "Your Number is Valid";
+      span[3].style.color = "lime";
+    } else {
+      span[3].innerText = "Invalid Phone Number";
+      span[3].style.color = "red";
+    }
+  }
+  pswd.onkeydown = function() {
+    const regpswd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~`!@#$%^&*\(\)\-_+={}\[\]|\\;:"<>,./?])[a-zA-Z\d~`!@#$%^&*\(\)\-_+={}\[\]|\\;:"<>,./?]{2,}$/;
+    if (regpswd.test(pswd.value)) {
+      span[4].innerText = "Your Password is Valid";
+      span[4].style.color = "lime";
+    } else {
+      span[4].innerText = "Invalid Password";
+      span[4].style.color = "red";
+    }
+  }
+  rpswd.onkeydown = function() {
+    psd = pswd.value;
+    rpsd = rpswd.value;
+    if (psd.match(rpsd)) {
+      span[5].innerText = "Your reentered password is correct";
+      span[5].style.color = "lime";
+    } else {
+      span[5].innerText = "Reentered password doesn't match";
+      span[5].style.color = "red";
+    }
+  }
+</script>
