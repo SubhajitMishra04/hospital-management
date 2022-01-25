@@ -138,7 +138,7 @@
         </div>
         <div>
           <!-- <label>E-mail</label> -->
-          <input type="email" id="email" placeholder="E-mail">
+          <input type="email" id="email" placeholder="E-mail" required="required">
           <span></span>
         </div>
         <div>
@@ -212,8 +212,8 @@
     }
   }
   email.onkeydown = function() {
-    const regex1 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})$/;
-    const regex2 = /^([a-z0-9\.-]+)@([a-z0-9]+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
+    const regex1 = /^([a-z0-9\.-]+)@(christuniversity+)\.([a-z]{1,8})$/;
+    const regex2 = /^([a-z0-9\.-]+)@(christuniversity+)\.([a-z]{1,8})(.[a-z]{1,8})$/;
     if (regex1.test(email.value) || regex2.test(email.value)) {
       span[2].innerText = "Your Email is Valid";
       span[2].style.color = "lime";
@@ -246,10 +246,10 @@
     psd = pswd.value;
     rpsd = rpswd.value;
     if (psd.match(rpsd)) {
-      span[5].innerText = "Your reentered password is correct";
+      span[5].innerText = "Your re-entered password is correct";
       span[5].style.color = "lime";
     } else {
-      span[5].innerText = "Reentered password doesn't match";
+      span[5].innerText = "Re-entered password doesn't match";
       span[5].style.color = "red";
     }
   }
