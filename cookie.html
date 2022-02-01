@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookies</title>
+
+    <style>
+
+#para {
+  border: 2px solid;
+  padding: 20px; 
+  width: 1000px;
+  resize: both;
+  overflow: auto;
+}
+
+
+        .header {
+            padding: 10px 16px;
+            background: rgb(10, 78, 109);
+            color: #ffffff;
+        }
+
+        .container {
+            height: 200px;
+            position: relative;
+
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 80%;
+            left: 30%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .navbar {
+            padding: 10px 16px;
+            overflow: hiddens;
+            background-color: rgb(10, 78, 109);
+            position: fixed;
+            /* Set the navbar to fixed position */
+            top: 0;
+            left: -0.00000000005%;
+            /* Position the navbar at the top of the page */
+            width: 100%;
+            /* Full width */
+        }
+
+        /* Links inside the navbar */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change background on mouse-over */
+        .navbar a:hover {
+            background: #ddd;
+            color: black;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <section>
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="appointment.html">Appointment</a>
+            <a href="online.html">Online Consultation</a>
+        </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <input class="btn solid" type="button" value="Add Cookies" onclick="setCookie()">
+    <input class="btn solid" type="button" value="Read Cookies" onclick="getCookie()">
+    <input class="btn solid" type="button" value="Remove Cookies" onclick="removeCookie()"><br>
+
+
+    <br><div style="background-color:rgba(176, 224, 230, 0.413);" id="para">
+        <p style="color:white; font-size:50px;text-align:center;">About Us</p>
+
+    <p style="text-align:center;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem tempora rem inventore delectus sunt esse harum maiores porro aliquid atque quasi neque cum minus magni provident nemo, assumenda maxime est fugit animi soluta reprehenderit veniam quisquam debitis. Voluptate fugit aspernatur veritatis cumque, libero voluptates non cum nisi a aliquid magnam quis aliquam possimus asperiores maxime sint voluptatem mollitia officia est amet? Voluptatibus cum praesentium, ipsum iusto eum facere explicabo, beatae incidunt sint ratione porro ad magnam excepturi unde enim nulla temporibus sapiente in? Rem vel maxime iusto. Praesentium ex molestiae sed aspernatur unde nesciunt aut inventore corporis, deserunt quaerat earum veniam? Ducimus at nostrum iure tempora? Sunt esse eaque amet aspernatur quod necessitatibus atque, omnis hic maxime eveniet accusantium voluptatem expedita id magnam ipsam tempore. Soluta veniam nam quibusdam quod. Praesentium quaerat, quibusdam inventore magnam excepturi repellat minus. Eligendi praesentium, illum consectetur ea ipsa aliquam quaerat nesciunt excepturi autem dolor voluptatem, sed tenetur debitis accusamus earum corrupti nihil ullam est fugit omnis maiores! Exercitationem deleniti perferendis architecto voluptates aspernatur ab asperiores. A quisquam unde ad voluptatum, nostrum voluptates reiciendis eos. Laudantium, temporibus. Distinctio, dignissimos hic velit debitis sapiente pariatur assumenda mollitia voluptates voluptas. Est incidunt, expedita, officiis minima, eum voluptates in sequi iste explicabo fugit obcaecati. Aliquam exercitationem corporis voluptatibus a. Facilis quo corporis provident alias, voluptas maxime tenetur ea nulla quia quasi quisquam explicabo recusandae ab. Nam aperiam ullam suscipit dicta sit nobis necessitatibus sed reiciendis, aut dignissimos quibusdam commodi itaque tenetur id error corrupti fugit quia! Deserunt temporibus eveniet obcaecati error minima, perferendis, porro enim neque odio optio libero. Qui, ea rerum? Iste labore ea deserunt quaerat, explicabo hic! Dolorem, iste laboriosam. Asperiores necessitatibus atque minima adipisci, consequatur eum magni officia ducimus sapiente. Doloremque quisquam, natus esse qui quam dolorem earum a quibusdam ut, quidem at, dolore tenetur?</p>
+    </div><br>
+
+
+
+    <select id="demo" onchange="show()">
+        <option value="Select Color">Select Color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+
+        
+        <script>
+
+
+            /*local*/
+            localStorage.setItem("name", "subhajit");
+            localStorage.setItem("roll", "2147134");
+            localStorage.setItem("sec", "A");
+            /*session*/
+            sessionStorage.setItem("course", "mca");
+            sessionStorage.setItem("subject", "web");
+
+
+            function setCookie() {
+                document.cookie = "username=Subhajit";
+                cookie1 = document.cookie;
+                alert("cookies added");
+
+            }
+            function getCookie() {
+                if (cookie1.length != 0) {
+                    alert(cookie1);
+                }
+                else {
+                    alert("no cookie found");
+                }
+
+            }
+            function removeCookie() {
+                document.cookie = cookie1 + ";max-age=0";
+                cookie1 = document.cookie;
+                alert("Cookie1 is deleted");
+
+            }
+            function show() {
+                var value = document.getElementById("demo").value;
+                if (value != "Select Color") {
+                    document.bgColor = value;
+                    document.cookie = "color=" + value + ";expires=Fri,2 Feb 2022 01:00:00 UTC;";
+                }
+            }
+            window.onload = function () {
+                if (document.cookie.length != 0) {
+                    var a = document.cookie.split("=");
+                    document.getElementById("demo").value = a[1];
+                    document.bgColor = a[1];
+                }
+            }
+
+        </script>
+
+
+
+
+</body>
+
+</html>
