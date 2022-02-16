@@ -48,13 +48,13 @@ border-radius: 10px;
        </div>
        <div class="input-box" style="padding-top: 0 !important; margin-top: 0 !important;">
        
-       <input type="text" class="modal-content" id="search" placeholder="Enter the Train available to be searched"  ng-model="search" required><br><br>
+       <input type="text" class="modal-content" id="search" placeholder="Enter the data available to be searched"  ng-model="search" required><br><br>
    </div>
         
        
 <table>
     <tr>
-        <th>Number</th>
+        <th>number</th>
         <th>Date</th>
         <th>City</th>
         <th>Type</th>
@@ -63,12 +63,12 @@ border-radius: 10px;
        
     </tr>
         <tr ng-repeat="data in names|limitTo:rowlimit|filter:search|filter:myup">
-            <td>{{data.trainno|myfilter:limit}}</td>
+            <td>{{data.id|myfilter:limit}}</td>
             <td>{{data.date|date:"dd/MM/yyyy"}}</td>
-            <td>{{data.destination|myfilter:limit}}</td>
-            <td>{{data.source|myup}}</td>
-            <td>{{data.price|number:0}}</td>
-            <td>&#8377;{{data.price|number:0}}</td>
+            <td>{{data.city|myfilter:limit}}</td>
+            <td>{{data.type|myup}}</td>
+            <td>{{data.salary|number:0}}</td>
+            <td>&#8377;{{data.salary|number:0}}</td>
             
         
 

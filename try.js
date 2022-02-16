@@ -1,7 +1,7 @@
 var myapp=angular.module("myapp",[]);
     myapp.controller("myctrl",function($scope,$http)
    {
-       $http.get('https://shilpa-k29.github.io/train_booking_system/data.json')
+       $http.get('https://subhajitmishra04.github.io/json/records.json')
        .success(function(response)
        
        {
