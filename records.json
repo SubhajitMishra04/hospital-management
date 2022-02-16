@@ -1,0 +1,81 @@
+{
+    "records": [
+        {
+            "id": 12345,
+            "date": "Feb 21,2022",
+            "city": "Mangalore",
+            "type": "Doctor",
+            "salary": "100000"
+        },
+        {
+            "id": 313,
+            "date": "Feb 21,2022",
+            "city": "Bangalore",
+            "type": "Nurse",
+            "salary": "150900"
+        },
+        {
+            "id": 545,
+            "date": "Feb 21,2022",
+            "city": "Mangalore",
+            "type": "Nurse",
+            "salary": "200000"
+        },
+        {
+            "id": 545,
+            "date": "Feb 21,2022",
+            "city": "Delhi",
+            "type": "Doctor",
+            "salary": "250000"
+        },
+        {
+            "id": 545,
+            "date": "Feb 21,2022",
+            "city": "Mumbai",
+            "type": "Pharmacist",
+            "salary": "100000"
+        },
+        {
+            "id": 87,
+            "date": "Feb 21,2022",
+            "city": "Kolkata",
+            "type": "Doctor",
+            "salary": "150000"
+        },
+        {
+            "id": 454,
+            "date": "Feb 21,2022",
+            "city": "Mangalore",
+            "type": "Nurse",
+            "salary": "106000"
+        },
+        {
+            "id": 78,
+            "date": "Feb 21,2022",
+            "city": "Kerala",
+            "type": "Nurse",
+            "salary": "400000"
+        },
+        {
+            "id": 84,
+            "date": "Feb 21,2022",
+            "city": "Delhi",
+            "type": "Resident",
+            "salary": "330000"
+        },
+        {
+            "id": 544,
+            "date": "Feb 21,2022",
+            "city": "Andhra Pradesh",
+            "type": "Nurse",
+            "salary": "103000"
+        },
+        {
+            "id": 8797,
+            "date": "Feb 21,2022",
+            "city": "West Bengal",
+            "type": "Residentr",
+            "salary": "140000"
+        }
+    ]
+}
